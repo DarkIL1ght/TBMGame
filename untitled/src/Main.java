@@ -1,15 +1,24 @@
 import Game.AbstractFactory.FantasyMUDFactory;
 import Game.AbstractFactory.IMUDAbstractFactory;
+import Game.AbstractFactory.SciFiMUDFactory;
+import Game.Entities.Room;
 import Game.GAMEENTITY.IGameEntity;
+import Game.controller.MUDController.MUDController;
+import Game.player.Player;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-    AnimalFactory animalFactory = new ConcreteImplementFactory();
+  /*  AnimalFactory animalFactory = new ConcreteImplementFactory();
         Animal dog1 = animalFactory.createAnimal("Dog");
         animalFactory.createAnimal("Cat").description();
+*/
 
+        Player player = new Player("Darhan");
+        Room startRoom = (Room) new SciFiMUDFactory().createRoom();
+        player.setCurrentRoom(startRoom);
+        new MUDController(player).runGameLoop();
 
 
     }
